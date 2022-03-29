@@ -1,0 +1,122 @@
+<div class="mBody">
+  <!-- Side Nav -->
+
+  <div class="sidenav">
+    <div class="sidenav-header">
+      <!-- <img style="height: 50px; margin: 5px; width: 190px;" src="../../assets/kralogo.png" alt="LOGO"> -->
+    </div>
+
+    <div class="sidenav-section">
+      <div class="section-header">Home</div>
+
+      <div class="sub-section">
+        <div [ngClass]="{'section-option':true, 'active-section-option':activeTab=='m-c'}" title="Users"
+          (click)="goToUsers()">
+          <fa-icon style="font-size: 17px; color: #05b44e;" [icon]="faCheckSquare"></fa-icon>
+          &nbsp; Users
+        </div>
+
+        <div [ngClass]="{'section-option':true, 'active-section-option':activeTab=='m-v'}" title="My Account"
+          (click)="goToMyAccount()">
+          <fa-icon style="font-size: 17px; color: #02c754;" [icon]="faCheckDouble"></fa-icon>
+          &nbsp; My Account
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Edd Side Nav -->
+
+
+  <!-- Top Bar -->
+
+  <div class="wrapper">
+    <div class="nav-header">
+      <h6>Dashboard</h6>
+      <p>Hi {{loggedUser}}</p>
+    </div>
+
+    <!-- End Top Bar -->
+
+    <div class="content">
+
+      <div style="display:flex">
+        <h3 class="head_line">{{headLine}}</h3>
+
+        <div style="margin-left: 20px;" *ngIf="isLoading">
+          <div class="spinner"></div>
+        </div>
+
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADD USER -->
+  <!-- 
+      <div class="card" *ngIf="activeTab == 'a-u'" style="width: 95%; height: 400px;">
+        <form class="mForm" [formGroup]="registerForm" (ngSubmit)="register(registerForm)"
+          style="justify-content: center;">
+
+          <div
+            [ngClass]="{'alertDialog': alertType, 'alertSuccess': alertType=='success', 'alertError': alertType=='error'}"
+            *ngIf="alertDialogStatus!='hidden'">
+
+            <div class="alertIcon">
+              <fa-icon style="color: rgb(73, 182, 73);" *ngIf="alertType=='success'" [icon]="faCheckCircle"></fa-icon>
+              <fa-icon style="color: rgb(196, 56, 56)" *ngIf="alertType=='error'" [icon]="faTimesCircle"></fa-icon>
+              <div class="spinner" *ngIf="alertType=='progress'"></div>
+            </div>
+            <div class="alertMessage">{{alertMessage}}</div>
+
+          </div>
+
+          <div class="formRow" style="width: 100%;">
+
+            <div class="formColumn" style="margin-left: 100px;">
+
+              <input class="mInput" type="text" formControlName="fullname" placeholder="Full name" />
+
+              <input class="mInput" type="email" formControlName="username" placeholder="Email" />
+
+              <input class="mInput" type="text" formControlName="phone" placeholder="Phone number" />
+
+              <select class="mInput" type="select" formControlName="roleid" placeholder="Role">
+
+                <option value="0" disabled selected>Select Role</option>
+
+                <option *ngFor="let item of userRoles" value={{item.roleid}}>
+                  {{item.rolename}}
+                </option>
+
+              </select>
+
+              <input class="mInput" type="password" formControlName="password" placeholder="Password" />
+
+              <input class="mInput" type="password" formControlName="password2" placeholder="Confirm password" />
+
+            </div>
+
+          </div>
+
+          <button class="mButton" type="submit">Save </button>
+
+
+        </form>
+
+
+      </div> -->
+
+  <!-- END ADD USER -->
+
+
+</div>

@@ -1,0 +1,78 @@
+      <!-- MPESA CONFIRMATIONS-->
+
+      <table  mat-table [dataSource]="dataSource" id="users-table">
+
+            <ng-container matColumnDef="position">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Num.</th>
+              <td class="mTd" mat-cell *matCellDef="let element; let i = index">{{this.paginator == undefined
+                ||this.paginator.pageIndex == 0 ? i + 1
+                : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Transaction Time">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Transaction Time</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.createdat}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Transaction ID">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Transaction ID</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.transid}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Amount">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Amount</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.transamount}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Account Number">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Account Number</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.billrefnumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Kra Pin">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Kra Pin </th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.taxpayerPin}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Tax Payer">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef>Tax Payer </th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.taxpayerFullName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Tax Heads">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Tax Heads </th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.eslipdetails}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Phone Number">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Phone Number</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.msisdn}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Name">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Name</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.firstname + ' ' + item.lastname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Account Balance">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef> Account Balance</th>
+              <td class="mTd" mat-cell *matCellDef="let item"> {{item.orgaccountbalance}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Status">
+              <th class="mtHH" mat-header-cell *matHeaderCellDef>Status</th>
+              <td class="mTd mTdSucc" mat-cell *matCellDef="let item"> Success </td>
+            </ng-container>
+
+
+            <tr class="mTh" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr class="mTr" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          </table>
+
+      <!-- MPESA CONFIRMATIONS -->
+
+      <mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" showFirstLastButtons></mat-paginator>

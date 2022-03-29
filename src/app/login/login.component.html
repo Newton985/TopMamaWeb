@@ -1,0 +1,28 @@
+
+<div class="mBody">
+
+    <form class="mForm" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+      <h4>Login</h4>
+
+      <div [ngClass]="{'alertDialog': alertType, 'alertSuccess': alertType=='success', 'alertError': alertType=='error'}" *ngIf="alertDialogStatus!='hidden'">
+
+          <div class ="alertIcon">
+            <fa-icon style="color: rgb(73, 182, 73);" *ngIf="alertType=='success'" [icon]="faCheckCircle"></fa-icon>
+            <fa-icon style="color: rgb(196, 56, 56)" *ngIf="alertType=='error'" [icon]="faTimesCircle"></fa-icon>
+            <div class="spinner" *ngIf="alertType=='progress'"></div>
+          </div>
+          <div class="alertMessage">{{alertMessage}}</div>
+
+      </div>
+
+      <input class="mInput" type="email"  formControlName="username"
+        placeholder="Username" />
+
+      <input class="mInput" type="password" formControlName="password"
+        placeholder="Password" />
+
+      <button class="mButton" type="submit" >Login </button>
+      <a class="link" routerLink="/signup">Sign Up</a>
+
+    </form>
+  </div>
